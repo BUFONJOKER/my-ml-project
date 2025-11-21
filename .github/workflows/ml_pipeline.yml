@@ -16,6 +16,12 @@ jobs:
       - name: Push to Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GIT_NAME: ${{ secrets.GIT_NAME }}
         run: |
-          # I have hardcoded your specific HF URL below
+          # 1. Configure Git User using Secrets
+          git config --global user.email "$GIT_EMAIL"
+          git config --global user.name "$GIT_NAME"
+          
+          # 2. Push to Hugging Face
           git push --force https://BUFON-JOKER:$HF_TOKEN@huggingface.co/spaces/BUFON-JOKER/iris-classifier main
