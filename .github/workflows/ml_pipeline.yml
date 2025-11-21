@@ -17,4 +17,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push https://huggingface.co/spaces/BUFON-JOKER/iris-classifier main
+          # I have hardcoded your specific HF URL below
+          git push --force https://BUFON-JOKER:$HF_TOKEN@huggingface.co/spaces/BUFON-JOKER/iris-classifier main
